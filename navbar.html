@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         
+
+        
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #ffffff;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #777;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .nav-item img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+        }
+
+        .nav-item.active {
+            color: #007bff;
+        }
+
+        .nav-item.active img {
+            filter: hue-rotate(220deg); /* Cambia el color de la imagen activa */
+        }
+
+        /* Mejora para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .nav-item {
+                font-size: 10px;
+            }
+
+            .nav-item img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido principal -->
+    
+    <div class="container">
+        <!-- Barra de navegación inferior -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+            <img src="./img/hogar.png" alt="Inicio">
+            <span class="nav-text">Inicio</span>
+            </a>
+            <a href="#" class="nav-item">
+            <img src="./img/grafico-analitico.png" alt="Buscar">
+            <span class="nav-text">Buscar</span>
+            </a>
+            <a href="#" class="nav-item">
+            <img src="./img/editar-perfil.png" alt="Favoritos">
+            <span class="nav-text">Favoritos</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        const navItems = document.querySelectorAll('.nav-item');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remover la clase "active" de todos los items
+                navItems.forEach(nav => nav.classList.remove('active'));
+                
+                // Agregar la clase "active" al elemento que se clicó
+                item.classList.add('active');
+            });
+        });
+    </script>
+    
+</body>
+</html>
